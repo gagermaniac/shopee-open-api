@@ -126,6 +126,7 @@ export declare class Product {
         page_size: number;
         item_name: string;
         attribute_status?: number;
+        item_sku: string;
     }): Promise<{
         error: string;
         message: string;

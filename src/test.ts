@@ -6,34 +6,38 @@ dotenv.config();
 (async () => {
   try {
     const shopee = ShopeeOpenAPI({
-      host: "https://partner.test-stable.shopeemobile.com",
-      partner_id: +process.env.PARTNER_ID,
-      partner_key: process.env.PARTNER_KEY,
+      host: "https://partner.shopeemobile.com",
+      partner_id: +2003905,
+      partner_key:
+        "d773743ea6e73ad8dfe3c432e0e6e0c6506f2019d8d0dcf814e3b299be445675",
       redirect: "https://google.com",
     });
 
     // const result = await shopee.getAuthLink();
-    // const result = await shopee.getAccessToken({
-    //   code: "38aedfc0314c6804404ee266863efa62",
-    //   shop_id: 18589,
-    // });
+    const result = await shopee.getAccessToken({
+      code: "4958764e5057484d6f7153714f516749",
+      shop_id: 119797661,
+    });
+
+    console.log(result);
+
     // const result = await shopee.refreshAccessToken({
     //   refresh_token: "09b3d8c0acbe0d91e77e424b4172e494",
     //   shop_id: 5304,
     // });
-    const shop = shopee.createShop({
-      shop_id: 22943,
-      onGetAccessToken: async () => {
-        //get access token from db
-        return "6324e6ea9e6c51f1ea86f2444f657dce";
-      },
-      onRefreshAccessToken: async () => {
-        //get refresh token from db
-        const { access_token, refresh_token } = await shopee.refreshAccessToken({ refresh_token: "refresh_token", shop_id: 22943 });
-        //store new refresh token & access token
-        return access_token;
-      },
-    });
+    // const shop = shopee.createShop({
+    //   shop_id: 22943,
+    //   onGetAccessToken: async () => {
+    //     //get access token from db
+    //     return "6324e6ea9e6c51f1ea86f2444f657dce";
+    //   },
+    //   onRefreshAccessToken: async () => {
+    //     //get refresh token from db
+    //     const { access_token, refresh_token } = await shopee.refreshAccessToken({ refresh_token: "refresh_token", shop_id: 22943 });
+    //     //store new refresh token & access token
+    //     return access_token;
+    //   },
+    // });
 
     // const result = await shop.Product.getCategory();
     // shop.Order.cancelOrder({ cancel_reason: CANCEL_REASON.COD_NOT_SUPPORTED, item_list: [], order_sn: "" });

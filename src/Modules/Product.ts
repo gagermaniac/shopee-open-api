@@ -127,6 +127,7 @@ export class Product {
     page_size: number;
     item_name: string;
     attribute_status?: number;
+    item_sku:string;
   }): Promise<{ error: string; message: string; response: any; warning: any; request_id: string }> {
     const apiPath = "product/search_item";
     const result = await this.http.get(apiPath, {
