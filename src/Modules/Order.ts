@@ -41,7 +41,7 @@ export class Order {
 
   async getOrderDetail(params: {
     order_sn_list: string;
-    response_optional_fields?: string[];
+    response_optional_fields?: string;
   }): Promise<{
     error: string;
     message: string;
