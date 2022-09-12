@@ -94,7 +94,11 @@ export declare class Product {
         item_id: number;
         stock_list: {
             model_id?: number;
-            normal_stock: number;
+            normal_stock?: number;
+            seller_stock?: {
+                stock: number;
+                location_id?: string;
+            }[];
         }[];
     }): Promise<{
         error: string;

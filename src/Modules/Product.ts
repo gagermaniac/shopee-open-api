@@ -3,7 +3,15 @@ import { ITEM_STATUS } from "../consts/constants";
 export class Product {
   constructor(private http: AxiosInstance) {}
 
-  async getCategory(params?: { language?: string }): Promise<{ error: string; message: string; response: any; warning: any; request_id: string }> {
+  async getCategory(params?: {
+    language?: string;
+  }): Promise<{
+    error: string;
+    message: string;
+    response: any;
+    warning: any;
+    request_id: string;
+  }> {
     const apiPath = "product/get_category";
     const result = await this.http.get(apiPath, {
       params,
@@ -14,7 +22,13 @@ export class Product {
   async getAttributes(params: {
     language?: string;
     category_id: number;
-  }): Promise<{ error: string; message: string; response: any; warning: any; request_id: string }> {
+  }): Promise<{
+    error: string;
+    message: string;
+    response: any;
+    warning: any;
+    request_id: string;
+  }> {
     const apiPath = "product/get_attributes";
     const result = await this.http.get(apiPath, {
       params,
@@ -27,7 +41,13 @@ export class Product {
     category_id: number;
     page_size: number;
     offset?: number;
-  }): Promise<{ error: string; message: string; response: any; warning: any; request_id: string }> {
+  }): Promise<{
+    error: string;
+    message: string;
+    response: any;
+    warning: any;
+    request_id: string;
+  }> {
     const apiPath = "product/get_brand_list";
     const result = await this.http.get(apiPath, {
       params,
@@ -35,7 +55,15 @@ export class Product {
     return result.data;
   }
 
-  async getDtsLimis(params: { category_id: number }): Promise<{ error: string; message: string; response: any; warning: any; request_id: string }> {
+  async getDtsLimis(params: {
+    category_id: number;
+  }): Promise<{
+    error: string;
+    message: string;
+    response: any;
+    warning: any;
+    request_id: string;
+  }> {
     const apiPath = "product/get_dts_limit";
     const result = await this.http.get(apiPath, {
       params,
@@ -43,7 +71,13 @@ export class Product {
     return result.data;
   }
 
-  async getItemLimit(): Promise<{ error: string; message: string; response: any; warning: any; request_id: string }> {
+  async getItemLimit(): Promise<{
+    error: string;
+    message: string;
+    response: any;
+    warning: any;
+    request_id: string;
+  }> {
     const apiPath = "product/get_item_limit";
     const result = await this.http.get(apiPath);
     return result.data;
@@ -55,7 +89,13 @@ export class Product {
     update_time_from?: number;
     update_time_to?: number;
     item_status: ITEM_STATUS[];
-  }): Promise<{ error: string; message: string; response: any; warning: any; request_id: string }> {
+  }): Promise<{
+    error: string;
+    message: string;
+    response: any;
+    warning: any;
+    request_id: string;
+  }> {
     const apiPath = "product/get_item_list";
     const result = await this.http.get(apiPath, {
       params,
@@ -65,7 +105,13 @@ export class Product {
 
   async getItemBaseInfo(params: {
     item_id_list: number[];
-  }): Promise<{ error: string; message: string; response: any; warning: any; request_id: string }> {
+  }): Promise<{
+    error: string;
+    message: string;
+    response: any;
+    warning: any;
+    request_id: string;
+  }> {
     const apiPath = "product/get_item_base_info";
     const result = await this.http.get(apiPath, {
       params: {
@@ -77,7 +123,13 @@ export class Product {
 
   async getItemExtraInfo(params: {
     item_id_list: number[];
-  }): Promise<{ error: string; message: string; response: any; warning: any; request_id: string }> {
+  }): Promise<{
+    error: string;
+    message: string;
+    response: any;
+    warning: any;
+    request_id: string;
+  }> {
     const apiPath = "product/get_item_extra_info";
     const result = await this.http.get(apiPath, {
       params: {
@@ -89,7 +141,15 @@ export class Product {
 
   //more api here
 
-  async getModelList(params: { item_id: number }): Promise<{ error: string; message: string; response: any; warning: any; request_id: string }> {
+  async getModelList(params: {
+    item_id: number;
+  }): Promise<{
+    error: string;
+    message: string;
+    response: any;
+    warning: any;
+    request_id: string;
+  }> {
     const apiPath = "product/get_model_list";
     const result = await this.http.get(apiPath, {
       params,
@@ -99,14 +159,35 @@ export class Product {
 
   async updateStock(params: {
     item_id: number;
-    stock_list: { model_id?: number; normal_stock: number }[];
-  }): Promise<{ error: string; message: string; response: any; warning: any; request_id: string }> {
+    stock_list: {
+      model_id?: number;
+      normal_stock?: number;
+      seller_stock?: {
+        stock: number;
+        location_id?: string;
+      }[];
+    }[];
+  }): Promise<{
+    error: string;
+    message: string;
+    response: any;
+    warning: any;
+    request_id: string;
+  }> {
     const apiPath = "product/update_stock";
     const result = await this.http.post(apiPath, params);
     return result.data;
   }
 
-  async boostItem(params: { item_id_list: number[] }): Promise<{ error: string; message: string; response: any; warning: any; request_id: string }> {
+  async boostItem(params: {
+    item_id_list: number[];
+  }): Promise<{
+    error: string;
+    message: string;
+    response: any;
+    warning: any;
+    request_id: string;
+  }> {
     const apiPath = "product/boost_item";
     const result = await this.http.post(apiPath, params);
     return result.data;
@@ -114,7 +195,13 @@ export class Product {
 
   async getBoostedList(params: {
     item_id_list: number[];
-  }): Promise<{ error: string; message: string; response: any; warning: any; request_id: string }> {
+  }): Promise<{
+    error: string;
+    message: string;
+    response: any;
+    warning: any;
+    request_id: string;
+  }> {
     const apiPath = "product/get_boosted_list";
     const result = await this.http.get(apiPath, {
       params,
@@ -127,8 +214,14 @@ export class Product {
     page_size: number;
     item_name: string;
     attribute_status?: number;
-    item_sku:string;
-  }): Promise<{ error: string; message: string; response: any; warning: any; request_id: string }> {
+    item_sku: string;
+  }): Promise<{
+    error: string;
+    message: string;
+    response: any;
+    warning: any;
+    request_id: string;
+  }> {
     const apiPath = "product/search_item";
     const result = await this.http.get(apiPath, {
       params,
@@ -141,7 +234,12 @@ export class Product {
     comment_id?: number;
     cursor: string;
     page_size?: number;
-  }): Promise<{ error: string; message: string; response: any; request_id: string }> {
+  }): Promise<{
+    error: string;
+    message: string;
+    response: any;
+    request_id: string;
+  }> {
     const apiPath = "product/get_comment";
     const result = await this.http.get(apiPath, {
       params,
@@ -154,7 +252,13 @@ export class Product {
       comment_id: number;
       comment: string;
     }[];
-  }): Promise<{ error: string; message: string; response: any; warning: string[]; request_id: string }> {
+  }): Promise<{
+    error: string;
+    message: string;
+    response: any;
+    warning: string[];
+    request_id: string;
+  }> {
     const apiPath = "product/reply_comment";
     const result = await this.http.post(apiPath, params);
     return result.data;
